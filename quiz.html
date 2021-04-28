@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="Description" content="Assignment,index" />
+	<meta name="keywords" content="html,css" />
+	<meta name="Author" content="Aakash" />
+	<link href ="styles/style.css" rel="stylesheet" />
+	<title>
+		Quiz
+	</title>
+</head>
+
+<body>
+<div class="running-text" id="animation2">&copy;Aakash. All Rights Reserved.</div>
+<div id="wrapper">
+	<div id="header-wrapper">
+	
+		<div id="header">
+
+			<div id="showlogo">
+				<?php include ("includes/header.inc");?>
+				</div>
+			<div id="menu">
+				<?php include ("includes/menu.inc");?>
+			</div>
+		
+		</div>
+		<hr>
+		<div id="banner">
+			<aside>
+				<p><a>Network System and Telecomunication Engineer</a></p>
+				<p><a>Swinburne University of Technology</a></p>
+				<p><a>Contact: 0420743332</a></p>
+				<p><a>email: 102007883@student.swin.edu.au</a></p>
+				<div id="swin"><img src="images/logo.png" alt=""></div>
+			</aside>
+		</div>
+	</div>
+</div>
+<form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php"><br>
+
+
+	<div id="featured-content">
+		<div id="column1">
+				<ul>
+					<li><a href="#question1">Question 1</a></li>
+					<li><a href="#question2">Question 2</a></li>
+					<li><a href="#question3">Question 3</a></li>
+					<li><a href="#question4">Question 4</a></li>
+					<li><a href="#question5">Question 5</a></li>
+					
+					
+				</ul>
+		
+		</div>
+		<div id="vrquiz">&nbsp;</div>
+			
+		<div id="column2">
+			<main>
+		<?php
+            if (isset($_GET['marks']) && isset($_GET['name'])) {
+                $marks = $_GET['marks'];
+                $name = $_GET['name'];
+                echo "<h2 class='notice'> $name, your score is $marks out of 50 </h2>";
+            } else
+            if (isset($_GET['attempts'])) {
+                echo "<h2 class='attempt'> You already took the test 3 times. you have exceeded the limit. </h2>";
+            }
+         ?>
+		<form method="post" action="markquiz.php"><br>
+
+		<fieldset>
+		<legend>Personal Details</legend>
+			<p><label for="First">FirstName:</label>
+			<input type="text" id="First" name="fname" required="required" pattern="[A-Za-z\s-]{1,20}" size="20" />
+			<label for="Last">LastName:</label>
+			<input type="text" id="Last" name="surname" required="required" pattern="[A-Za-z\s-]{1,20}" size="20" /></p>
+            <p><label for="StudentId">Student Id:</label>
+			<input type="text" id="StudentId" name="ID" required="required" pattern="^(\d{7}|\d{10})$" /></p>
+        </fieldset>
+		<br />
+        <fieldset>
+		<legend id="question1">Question 1</legend>
+            
+			<p><label>What are Aakash's Hobbies? (Select all that applies)</label></p>
+			<p>
+            <input type="checkbox" name="cbname2" value="cb2">Dancing<br/>
+            <input type="checkbox" name="cbname3" value="cb3">Swimming<br/>
+			<input type="checkbox" name="cbname3" value="cb3">Reading<br/>
+            <input type="checkbox" name="cbname4" value="cb4">Watching Movies<br/>
+			<input type="checkbox" name="cbname3" value="cb3">Singing<br/></p>
+        </fieldset >
+		<br />
+        <fieldset>
+		<legend id="question2">Question 2</legend>
+			<p><label>What is the coolest place in Kolhapur ?</label></p>
+			<p><input type="radio" name="rdname" value="rd1" required="required" />Chandgad<br />
+			<input type="radio" name="rdname" value="rd2" />Panhala Fort<br />
+            <input type="radio" name="rdname" value="rd3" />Jyotiba Hill<br/>
+			<input type="radio" name="rdname" value="rd4"/>Kolhpaur City Area</p>
+        </fieldset>
+		<br />
+        <fieldset>
+		<legend id="question3">Question 3</legend>    	
+		<p><label>In Which year did Aakash Graduate ?</label>
+            	<select name="year">
+            		<option value="">Please Select</option>
+                    <option value="op1">2016</option>
+                    <option value="op2">2017</option>
+                    <option value="op3">2018</option>
+					<option value="op4">2019</option>
+                </select>
+            </p>
+            
+        </fieldset>
+		<br />
+        <fieldset>
+		<legend id="question4">Question 4</legend>
+            
+			<p><label>What is the meaning of "We kolhapur people are best in the World" in Marathi language?</label></p>
+			<p><input type="text" name="q1" /></p>
+        </fieldset>
+		<br />
+        <fieldset>
+		<legend id="question5">Question 5</legend>     
+            <p><label>Summerize the climate of Kolhapur ?</label></p>
+			<p><textarea name="comments" rows="10" cols="80" placeholder="Answer"></textarea></p>	
+        </fieldset>
+		<br />
+			<p><input type="submit" value="submit" /></p>
+        </form>
+	</main>
+			
+		
+		</div>
+	</div>
+
+<div id="footer">
+	<?php include ("includes/footer.inc");?>
+	<div class="ToTop"><a href="#"><img src="images/uparrow.png" width="50" height="30" alt="" /></a>&nbsp;</div>
+</div>
+<!-- end #footer -->
+</body>
+</html>
+
